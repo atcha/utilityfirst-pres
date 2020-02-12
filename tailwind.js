@@ -1,45 +1,5 @@
 module.exports = {
     theme: {
-        colors: {
-            transparent: 'transparent',
-            primary: {
-                normal: '#2E5BFF',
-                light: 'rgba(46,91,255,0.2)'
-            },
-            green: {
-                normal: '#33AC2E',
-                light: 'rgba(51, 172, 46, 0.2)'
-            },
-            red: {
-                normal: '#D63649',
-                light: 'rgba(214, 54, 73, 0.2)'
-            },
-            yellow: {
-                normal: '#F7C137',
-                light: 'rgba(247,193,55, 0.2)'
-            },
-            blue: {
-                normal: '#00C1D4',
-                light: 'rgba(0,193,212,0.15)'
-            },
-            purple: {
-                normal: '#8C54FF',
-                light: 'rgba(140,84,255,0.2)'
-            },
-            gray: {
-                '0': '#C8C8C8',
-                '1': '#BFC5D2',
-                '2': '#F4F6FC',
-                '3': '#EEF3F5'
-            },
-            white: '#FFFFFF',
-            black: {
-                '1': '#2E384D',
-                '2': '#69707F',
-                '3': '#8798AD',
-                '4': '#808080'
-            }
-        },
         borderWidth: {
             default: '1px',
             '0': '0',
