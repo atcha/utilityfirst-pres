@@ -1,11 +1,13 @@
 <template>
     <div id="app" class="container mx-auto flex flex-col items-center">
-        <h1>Liste des participants aux Human Talks Poitiers</h1>
-        <card class="lg:w-1/2"
-              name="Erin Lindford"
-              role="Customer Support"
-              mail="erinlindford@example.com"
-              phone="(555) 765-4321"></card>
+        <h1>Liste des participants aux Human Talks Poitiers <span class="text-sm text-gray-700">({{members.length}})</span></h1>
+        <card v-for="member in members"
+              :key="member.id"
+              class="lg:w-1/2 mb-5"
+              :picture="member.photo"
+              :name="member.name"
+              :joined-date="member.joined"
+        ></card>
     </div>
 </template>
 
@@ -23,24 +25,14 @@
         },
         data() {
             return {
-                siteUrl: "https://www.meetup.com/fr-FR/Human-Talks-Poitiers/members/",
-                siteResult: {}
+                members: []
             }
         },
         methods: {
             fetchData() {
-                fetch("https://www.meetup.com/fr-FR/Human-Talks-Poitiers/members/",
-                    {
-                        method: 'GET',
-                        mode: 'no-cors'
-                    })
-                    .then((response) => {
-                        return response.text();
-                        // cheerio.load(result.data);
-                    }).then((html) => {
-                        console.log(html);
-                    });
-
+                import('./data/members').then((results) => {
+                    this.members = results.value;
+                })
             }
         }
     }
