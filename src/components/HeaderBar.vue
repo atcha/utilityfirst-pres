@@ -4,7 +4,7 @@
             <div class="px-4 sm:px-6">
                 <div class="flex justify-between items-center py-3 border-b border-gray-200">
                     <div class="flex-1 min-w-0 flex">
-                        <button class="text-gray-600 lg:hidden" @click="updateSidebarState(true)">
+                        <button class="text-gray-600 lg:hidden" @click="openSideBar">
                             <svg fill="none" viewBox="0 0 24 24" class="h-6 w-6">
                                 <path d="M4 6h16M4 12h16M4 18h7" stroke-linecap="round" stroke-width="2" stroke="currentColor"></path>
                             </svg>
@@ -32,7 +32,12 @@
     export default {
         name: "HeaderBar",
         components: { SearchForm },
-        props: ['pageTitle', 'updateSidebarState']
+        props: ['pageTitle'],
+        methods: {
+            openSideBar() {
+                this.$store.commit("changeSideBarState", true);
+            }
+        }
     }
 </script>
 

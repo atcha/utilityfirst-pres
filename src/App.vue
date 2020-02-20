@@ -3,7 +3,7 @@
         <side-bar></side-bar>
         <div class="flex-1 min-w-0 flex flex-col">
             <header-bar page-title="Liste des participants"></header-bar>
-            <div class="flex flex-col items-start pl-6 pt-6 overflow-auto">
+            <div class="flex flex-col items-stretch lg:items-start px-6 pt-6 overflow-auto">
                 <card v-for="member in members"
                       :key="member.id"
                       class="lg:w-1/2 mb-5"
