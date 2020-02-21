@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed z-30 inset-y-0 left-0 w-64 px-8 py-4 bg-gray-100 border-r overflow-auto lg:static lg:inset-auto transform lg:translate-x-0 transition-medium"
+    <div class="fixed z-30 inset-y-0 left-0 w-64 px-8 py-4 bg-gray-100 border-r overflow-auto lg:static lg:inset-auto transform lg:translate-x-0 transition-transform duration-100"
          :class="[sideBarIsOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in']">
         <div class="-mx-3 pl-3 pr-1 flex items-center justify-between">
             <span><img alt="" src="../assets/logo.png" class="h-16 w-auto"></span>
