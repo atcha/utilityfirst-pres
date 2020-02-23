@@ -12,16 +12,15 @@
                         <search-form></search-form>
                     </div>
                 </div>
-                <div class="flex items-center justify-between py-2">
+                <div class="flex items-center justify-between py-3 border-b border-gray-200">
                     <div class="sm:flex sm:items-center">
                         <h2 class="text-2xl font-semibold text-primary leading-tight">
                             {{pageTitle}}
                         </h2>
                         <div class="mt-1 flex items-center sm:mt-0 sm:ml-6"></div>
                     </div>
-                    <div class="flex">
-                    </div>
                 </div>
+                <slot></slot>
             </div>
         </header>
     </div>
