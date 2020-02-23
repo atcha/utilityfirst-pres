@@ -30,7 +30,7 @@
                     let members = this.members.filter((obj) => {
                         return Object.keys(obj).some((key) => {
                             if(key !== 'photo') {
-                                return obj[key].includes(searchValue);
+                                return obj[key].toUpperCase().includes(searchValue.toUpperCase());
                             }
                         });
                     });
