@@ -5,14 +5,16 @@
             <header-bar page-title="Liste des participants">
                 <sort-bar></sort-bar>
             </header-bar>
-            <div class="p-6 flex flex-col items-stretch lg:items-start overflow-auto">
-                <card v-for="member in members"
-                      :key="member.id"
-                      class="lg:w-1/2 mb-5"
-                      :picture="member.photo"
-                      :name="member.name"
-                      :joined-date="member.joined"
-                ></card>
+            <div class="p-6 overflow-auto">
+                <transition-group name="card-list" tag="div">
+                    <card v-for="member in members"
+                          :key="member.id"
+                          class="lg:w-1/2 mb-5"
+                          :picture="member.photo"
+                          :name="member.name"
+                          :joined-date="member.joined"
+                    ></card>
+                </transition-group>
             </div>
         </div>
     </div>
@@ -23,6 +25,7 @@
     import SideBar from "./components/SideBar";
     import Card from './components/Card';
     import SortBar from "./components/SortBar";
+    import { mapState } from 'vuex';
 
     export default {
         name: 'App',
@@ -34,18 +37,14 @@
         },
         created() {
             this.$store.dispatch('fetchMembers');
-            this.members = this.$store.state.members;
-        },
-        mounted() {
-          console.log(this.members);
         },
         data() {
             return {
-                members: [],
                 membersLength: null,
                 isSideBarOpen: false
             }
-        }
+        },
+        computed: mapState(['members'])
     }
 </script>
 
@@ -54,5 +53,9 @@
         font-family: Avenir, Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+
+    .card-list-move {
+        transition: transform 1s;
     }
 </style>

@@ -6,14 +6,39 @@
                           stroke="currentColor"></path>
                 </svg>
             </span>
-        <input placeholder="Search"
+        <input @input="searchMembers(searchValue)" placeholder="Search" v-model="searchValue"
                class="block w-full rounded-md border border-gray-400 pl-10 pr-4 py-2 text-sm text-gray-900 placeholder-gray-600">
     </div>
 </template>
 
 <script>
     export default {
-        name: "SearchForm"
+        name: "SearchForm",
+        data() {
+            return {
+                members: '',
+                searchValue: ''
+            }
+        },
+        created() {
+            this.members = this.$store.state.members
+        },
+        methods: {
+            searchMembers(searchValue) {
+                if(searchValue.length === 0) this.$store.dispatch('fetchMembers');
+                if(searchValue.length >= 1) {
+                    let members = this.members.filter((obj) => {
+                        return Object.keys(obj).some((key) => {
+                            if(key !== 'photo') {
+                                return obj[key].includes(searchValue);
+                            }
+                        });
+                    });
+
+                    this.$store.commit('setMembers', members);
+                }
+            }
+        }
     }
 </script>
 
