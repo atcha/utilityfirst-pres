@@ -56,6 +56,7 @@
     }
 
     .card-list-move {
-        transition: transform 1s;
+        transition: 700ms cubic-bezier(0.59, 0.12, 0.34, 0.95);
+        transition-property: opacity, transform;
     }
 </style>
